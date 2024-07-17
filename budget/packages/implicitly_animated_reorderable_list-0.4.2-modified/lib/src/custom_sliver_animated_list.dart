@@ -25,7 +25,7 @@ class CustomSliverAnimatedList extends StatefulWidget {
   ///
   /// Implementations of this callback should assume that
   /// [CustomSliverAnimatedListState.removeItem] removes an item immediately.
-  final AnimatedListItemBuilder itemBuilder;
+  final AnimatedItemBuilder itemBuilder;
 
   /// {@macro flutter.widgets.animatedList.initialItemCount}
   final int initialItemCount;
@@ -208,7 +208,7 @@ class CustomSliverAnimatedListState extends State<CustomSliverAnimatedList>
   /// This method's semantics are the same as Dart's [List.remove] method:
   /// it decreases the length of the list by one and shifts all items at or
   /// before [index] towards the beginning of the list.
-  void removeItem(int index, AnimatedListRemovedItemBuilder builder,
+  void removeItem(int index, AnimatedRemovedItemBuilder builder,
       {Duration duration = _kDuration}) {
     assert(index >= 0);
 
@@ -286,7 +286,7 @@ class _ActiveItem implements Comparable<_ActiveItem> {
         removedItemBuilder = null;
 
   final AnimationController? controller;
-  final AnimatedListRemovedItemBuilder? removedItemBuilder;
+  final AnimatedRemovedItemBuilder? removedItemBuilder;
   int itemIndex;
 
   @override
